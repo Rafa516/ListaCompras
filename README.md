@@ -51,6 +51,9 @@ System:
    <p align="center">
   <img src="App Itens.png" width="350">
    </p><br>
+    <p align="center">
+  <img src="App Edit Item.png" width="350">
+   </p><br>
    <p align="center">
   <img src="App MenuSide.png" width="350">
    </p><br>
