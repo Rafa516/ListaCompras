@@ -1,0 +1,33 @@
+
+  <ion-menu side="start" menuId="first" contentId="menu">
+    <ion-header >
+      <ion-toolbar color='dark'>
+        <ion-title class='title'> <img src="assets/img/icon1.png" height="50px" width="50px"></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+     
+      <ion-list>
+        <ion-item type="submit" (click)= "goHome()"> <ion-icon name="home-outline"color="dark"></ion-icon>&nbsp;&nbsp;Ínicio</ion-item>
+        <ion-item type="submit" (click)= "logout()" ><ion-icon name="exit-outline"color="dark"></ion-icon>&nbsp;&nbsp;Sair</ion-item>
+        <ion-item >&nbsp;&nbsp;Meses</ion-item>
+        <ion-item type="submit" (click)= "goJan()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Janeiro</ion-item>
+        <ion-item type="submit" (click)= "goFeb()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Fevereiro</ion-item>
+        <ion-item type="submit" (click)= "goMarch()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Março</ion-item>
+        <ion-item type="submit" (click)= "goApril()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Abril</ion-item>
+        <ion-item type="submit" (click)= "goMay()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Maio</ion-item>
+        <ion-item type="submit" (click)= "goJun()"><ion-icon name="today-outline"color="dark"></ion-icon>&nbsp;&nbsp;Junho</ion-item>
+        <ion-item type="submit" (click)= "goJul()"><ion-icon name="today-outline"color="dark"></ion-icon>&nbsp;&nbsp;Julho</ion-item>
+        <ion-item type="submit" (click)= "goAug()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Agosto</ion-item>
+        <ion-item type="submit" (click)= "goSep()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Setembro</ion-item>
+        <ion-item type="submit" (click)= "goOct()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Outubro</ion-item>
+        <ion-item type="submit" (click)= "goNov()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Novembro</ion-item>
+        <ion-item type="submit" (click)= "goDec()"><ion-icon name="today-outline" color="dark"></ion-icon>&nbsp;&nbsp;Dezembro</ion-item>
+
+       
+      </ion-list>
+    
+    </ion-content>
+ 
+  </ion-menu>
+ 

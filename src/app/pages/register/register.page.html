@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button class='icon'color="light"defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title class='title' color="dark"  color= 'light' ></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class='title'>Cadastro</h2>
+  <div class='tela'>
+    <img src="assets/img/logo.png" height="150px" width="200px">
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+      <ion-icon name="person-outline"color='success'></ion-icon>&nbsp;&nbsp;<ion-input formControlName="firstName" type="text" placeholder="Nome"></ion-input>
+      <div *ngIf="!signupForm.controls.firstName.valid">
+        <p class="alert">Campo Obrigatório.</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person-outline"color='success'></ion-icon>&nbsp;&nbsp;<ion-input formControlName="lastName" type="text" placeholder="Sobrenome"></ion-input>
+     
+    </ion-item>  
+    <ion-item>
+      <ion-icon name="at-circle-outline"color='success'></ion-icon>&nbsp;&nbsp;<ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      <div *ngIf="!signupForm.controls.email.valid">
+        <p class="alert">Digite um email válido.</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock-closed-outline"color='success'></ion-icon>&nbsp;&nbsp;<ion-input formControlName="password" type="password" placeholder="Senha"></ion-input>
+      <div *ngIf="!signupForm.controls.password.valid">
+        <p class="alert">Mínimo 6 caracteres.</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock-closed-outline"color='success'></ion-icon>&nbsp;&nbsp;<ion-input formControlName="retype" type="password" placeholder="Confirma Senha"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center">
+          <ion-button expand="block" color='success' type="submit" [disabled]="!signupForm.valid">Criar Conta</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</div>
+  </ion-content>

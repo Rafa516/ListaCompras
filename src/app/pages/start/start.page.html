@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title   (click)='logout()'slot ='end'color="light"><ion-icon class='icon' name="exit"></ion-icon>
+    
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+
+<ion-content>
+  <div class="tela">
+
+    <ion-card class="card">
+      <ion-item>
+        <img src="assets/img/icon.png" height="50px" width="50px">
+        <ion-label>
+          <h1><b>&nbsp;&nbsp;ListaCompras</b></h1>
+        </ion-label>
+      </ion-item >
+
+      <ion-card-content >
+        <h4>Organize suas listas de compras correspondente a cada mês, com mais praticidade e eficiência.</h4>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card  >
+      
+      <ion-item type="submit" (click)="goJan()" class="ion-activated">
+        <img src="assets/img/janeiro.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Janeiro</ion-label>
+      </ion-item>
+      <ion-item type="submit" (click)="goFeb()" class="ion-activated">
+        <img src="assets/img/fevereiro.png" height="50px" width="50px">
+        <ion-label><h2>&nbsp;&nbsp;&nbsp;&nbsp;Fevereiro</h2></ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goMarch()" class="ion-activated">
+        <img src="assets/img/marco.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Março</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goApril()" class="ion-activated">
+        <img src="assets/img/abril.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Abril</ion-label>
+      </ion-item>
+      <ion-item type="submit" (click)="goMay()" class="ion-activated">
+        <img src="assets/img/maio.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Maio</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goJun()" class="ion-activated">
+        <img src="assets/img/junho.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Junho</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goJul()" class="ion-activated">
+        <img src="assets/img/julho.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Julho</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goAug()" class="ion-activated">
+        <img src="assets/img/agosto.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Agosto</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goSep()" class="ion-activated">
+        <img src="assets/img/setembro.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Setembro</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goOct()" class="ion-activated">
+        <img src="assets/img/outubro.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Outubro</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goNov()" class="ion-activated">
+        <img src="assets/img/novembro.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Novembro</ion-label>
+      </ion-item>
+
+      <ion-item type="submit" (click)="goDec()" class="ion-activated">
+        <img src="assets/img/dezembro.png" height="50px" width="50px">
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;Dezembro</ion-label>
+      </ion-item>
+    </ion-card>
+
+  </div>
+</ion-content>

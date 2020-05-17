@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button class='icon'color="light"defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    <ion-title class='title'color="light" ></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class='title'>Redefinir  Senha</h2>
+  <div class='tela'>
+  <img src="assets/img/logo.png" height="150px" width="200px">
+  <ion-card class="card">
+  
+    <ion-card-content >
+      <h4>Se por algum motivo você esqueceu a sua senha, preencha o Campo abaixo com o E-mail cadastrado, logo após será enviado
+       um link para a redefinção da sua senha.</h4>
+    </ion-card-content>
+  </ion-card>
+  <form [formGroup]="resetPwdForm" (submit)="resetUserPwd()" novalidate>
+    <ion-item>
+      <ion-icon name="at-circle-outline"color='danger'></ion-icon>
+      &nbsp;&nbsp;<ion-input formControlName="email" type="email" placeholder="Email" ></ion-input>
+      <div *ngIf="!resetPwdForm.controls.email.valid">
+        <p class="alert">Digite um email válido.</p>
+      </div>
+    </ion-item>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center">
+          <ion-button expand="block" type="submit" color="danger" [disabled]="!resetPwdForm.valid">
+            <ion-icon name="key-outline"slot='start'></ion-icon>Redefinir</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</div>
+</ion-content>

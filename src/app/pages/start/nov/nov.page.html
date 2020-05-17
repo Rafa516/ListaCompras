@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+  <ion-router-outlet id="menu"></ion-router-outlet>
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-title><ion-icon  (click)='toggleMenu()'class='icon'  name="menu" color="light"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <h2 class='title'>Novembro</h2>
+  <div class='tela'>
+    <ion-item>
+      <ion-input [(ngModel)]="item" type="text" placeholder="Digite aqui o seu produto">
+        <ion-icon class='icon1' name="cart-outline" color="dark"></ion-icon>&nbsp;
+      </ion-input>
+      <div class="item-note" item-end>
+        <ion-button (click)="addItem()" ion-button color="primary">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <div padding>
+      <ion-list>
+
+
+        <ion-item *ngFor="let todo of fireStoreItemList | async">
+          <ion-icon class='icon1' name="cart-outline" color="dark"></ion-icon>&nbsp;{{todo.item}}
+          <ion-icon class='icon1' name="create-outline" color='success' slot="end" (click)="updateItem(todo.id)"></ion-icon>
+          <ion-icon class='icon1' name="trash-outline" color='danger' slot="end" (click)="deleteItem(todo.id)"></ion-icon>
+        </ion-item>
+
+
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
