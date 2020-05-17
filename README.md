@@ -32,8 +32,8 @@ System:
    Authentication por email/senha
    Database: Cloud Firestore.
    
-   
+   <b><center>Tela de Login<b><center>
    <p align="center">
-  <img src="App Login.png" width="350" title="Tela de Login">
+  <img src="App Login.png" width="350">
  
 </p>
