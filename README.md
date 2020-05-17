@@ -31,3 +31,9 @@ System:
    Foi utilizado como banco de dados o Firebase NoSql.
    Authentication por email/senha
    Database: Cloud Firestore.
+   
+   
+   <p align="center">
+  <img src="ListaCompras/App Login.png" width="350" title="Tela de Login">
+ 
+</p>
