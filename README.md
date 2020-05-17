@@ -34,6 +34,6 @@ System:
    
    
    <p align="center">
-  <img src="ListaCompras/App Login.png" width="350" title="Tela de Login">
+  <img src="App Login.png" width="350" title="Tela de Login">
  
 </p>
