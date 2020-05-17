@@ -11,7 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class JulPage  {
 
-  item: string = ""
+  item;
   userId: any;
   fireStoreItemList: any;
   fireStoreList: any;
@@ -45,7 +45,7 @@ export class JulPage  {
         id: id,
         item: itemId
       });
-      this.item = ""; // Limpando o input 
+      this.item = (null); // Limpando o input 
       this.loading.presentLoading();
       this.toast.presentToast('Item adicionado na Lista.')
 
@@ -66,7 +66,7 @@ export class JulPage  {
     let alert = await this.alertCtrl.create({ //Gerando uma janela de alerta com a opção de Atualizar o item ...
       header: 'Editar Item?',                 //...no firestore por indexação com condições.
       message: 'Digite sua edição do item  para atualizar.',
-      inputs: [{ name: 'editItem', }],
+      inputs: [{ name: 'editItem',placeholder:'Digite aqui' }],
       buttons: [{ text: 'cancelar', role: 'cancelar' },
       {
         text: 'Editar', handler: data => {
