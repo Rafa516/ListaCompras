@@ -33,7 +33,24 @@ System:
    Database: Cloud Firestore.
    
    
-   <p align="center">Tela de Login
+   <p align="center">
   <img src="App Login.png" width="350">
- 
-   </p>
+   </p><br>
+    <p align="center">
+  <img src="App Register.png" width="350">
+   </p><br>
+   <p align="center">
+  <img src="App Reset.png" width="350">
+   </p><br>
+   <p align="center">
+  <img src="App Start.png" width="350">
+   </p><br>
+    <p align="center">
+  <img src="App Months .png" width="350">
+   </p><br>
+   <p align="center">
+  <img src="App Itens.png" width="350">
+   </p><br>
+   <p align="center">
+  <img src="App MenuSide.png" width="350">
+   </p><br>
