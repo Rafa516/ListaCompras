@@ -1,8 +1,14 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title   (click)='logout()'slot ='end'color="light"><ion-icon class='icon' name="exit"></ion-icon>
+      <ion-buttons slot='start'>
+       <ion-icon class='icon' slot='end' name='home'color="light"></ion-icon>
+      </ion-buttons>
+    <ion-title class='title' color="light"><h3>Ínicio</h3>
     
     </ion-title>
+    <ion-buttons slot='end'  (click)='logout()'>
+      <ion-icon  slot='start'class='icon1'color='light' name="exit"></ion-icon>
+     </ion-buttons>
   </ion-toolbar>
   
 </ion-header>

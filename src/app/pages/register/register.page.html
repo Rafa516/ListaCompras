@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button class='icon'color="light"defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title class='title' color="dark"  color= 'light' ></ion-title>
+    <ion-title class='title' color= 'light' ><h2>Cadastro</h2></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h2 class='title'>Cadastro</h2>
+ 
   <div class='tela'>
     <img src="assets/img/logo.png" height="150px" width="200px">
   <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>

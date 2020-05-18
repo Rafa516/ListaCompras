@@ -19,6 +19,7 @@ import { Storage } from '@ionic/storage';
 export class RegisterPage implements OnInit {
 
   signupForm: FormGroup;
+  name;
   
 
   constructor(
@@ -57,10 +58,10 @@ export class RegisterPage implements OnInit {
           userDoc.set({
             firstName: this.signupForm.value.firstName,
             lastName: this.signupForm.value.lastName,
-            email: this.signupForm.value.email
-            
+            email: this.signupForm.value.email,
 
           });
+          this.name = userDoc.get();
           
           this.load.presentLoading()
           this.toast.presentToastSucces('Usuário Cadastrado com Sucesso.')

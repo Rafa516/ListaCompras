@@ -49,10 +49,7 @@ export class FebPage  {
       this.toast.presentToast('Item adicionado na Lista.');
       this.item = (null); // Limpando o input 
 
-    } else {
-      this.loading.presentLoadingDanger();               //Se não houver valor preenchido no input, retornará toast de erro
-      this.toast.presentToastDanger('Campo não preenchido.')
-    }
+    } 
   }
 
   deleteItem(index) {

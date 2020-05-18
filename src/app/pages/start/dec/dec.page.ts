@@ -51,10 +51,7 @@ export class DecPage  {
       this.loading.presentLoading();
       this.toast.presentToast('Item adicionado na Lista.')
 
-    } else {
-      this.loading.presentLoadingDanger();               //Se não houver valor preenchido no input, retornará toast de erro
-      this.toast.presentToastDanger('Campo não preenchido.')
-    }
+    } 
   }
 
   deleteItem(index) {

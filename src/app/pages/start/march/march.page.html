@@ -2,12 +2,15 @@
   <ion-router-outlet id="menu"></ion-router-outlet>
 <ion-header>
   <ion-toolbar color='dark'>
-    <ion-title><ion-icon  (click)='toggleMenu()'class='icon'  name="menu" color="light"></ion-icon>
+    <ion-buttons slot='start'>
+     <ion-icon class='icon' slot='end' (click)='toggleMenu()'name='menu'color="light"></ion-icon>
+    </ion-buttons>
+    <ion-title class='title'><h3>Março</h3>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <h2 class='title'>Março</h2>
+  
   <div class='tela'>
     <ion-item>
       <ion-input [(ngModel)]="item" type="text" placeholder="Digite aqui o seu produto">
