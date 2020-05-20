@@ -29,13 +29,13 @@ export class ResetPage implements OnInit {
 
   resetUserPwd() {
     this.auth.sendPasswordResetEmail(this.resetPwdForm.value.email).then(async (user) => {
-      this.toast.presentToastRedefition('foi enviado  um link no seu email para redefinição da sua senha.')
-      this.load.presentLoadingRedefition();
+      this.toast.presentToast('Foi enviado  um link no seu email para redefinição da sua senha.',5000,'success')
+      this.load.presentLoading(5000);
       this.navCtrl.navigateBack('login')
 
     }, async (error) => {
-      this.load.presentLoadingDanger();
-      this.toast.presentToastDanger('Email inválido ou não cadastrado.');
+      this.load.presentLoading(1000);
+      this.toast.presentToast('             Email inválido ou não cadastrado.',1000,'danger');
       this.resetPwdForm.controls['email'].setValue(null); //limpa o input do email
 
     });

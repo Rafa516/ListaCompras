@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./feb.page.scss'],
 })
 export class FebPage  {
-  item;
+  item:null;
   userId: any;
   fireStoreItemList: any;
   fireStoreList: any;
@@ -37,25 +37,28 @@ export class FebPage  {
   }
 
   addItem() {
-    if (this.item.length > 0) {
-      let itemId = this.item;              // adicionando um item pelo id, se o valor dos caratceteres for maior que 0
+    if (this.item != null) {
+      let itemId = this.item;              // adicionando um item pelo id, se o valor dos caratcters for maior que 0
       let id = this.firestore.createId();
       this.fireStoreList.doc(id).set({
         id: id,
-        item: itemId
+        item: itemId,
       });
-      
-      this.loading.presentLoading();
-      this.toast.presentToast('Item adicionado na Lista.');
-      this.item = (null); // Limpando o input 
+     
+      this.loading.presentLoading(500);
+      this.toast.presentToast('                   Item adicionado na Lista.',500,'primary')
+      this.item = null;
+    }else{
+      this.loading.presentLoading(500);
+      this.toast.presentToast("                      Campo não preenchido.",500,'danger')
 
-    } 
+    }
   }
 
   deleteItem(index) {
     this.fireStoreList.doc(index).delete()    // deletando o item do firestore por indexação, e removendo ta tela 
-    this.loading.presentLoadingDanger()
-    this.toast.presentToastDanger('Item excluído da Lista.')
+    this.loading.presentLoading(500)
+    this.toast.presentToast('                     Item excluído da Lista.',500,'danger')
   }
 
 
@@ -69,11 +72,11 @@ export class FebPage  {
         text: 'Editar', handler: data => {
           if (data.editItem.length > 0) {      //se Houver algum valor preenchido no input a edição será completada
             this.fireStoreList.doc(index).update({ item: data.editItem })
-            this.loading.presentLoading();
-            this.toast.presentToastSucces('Item editado com sucesso.');
+            this.loading.presentLoading(500);
+            this.toast.presentToast('                   Item editado com sucesso.',500,'success');
           } else if (data.editItem.length < 1) { // senão, será enviado um toast de erro
-            this.loading.presentLoadingDanger();
-            this.toast.presentToastDanger('Campo não preenchido.')
+            this.loading.presentLoading(500);
+            this.toast.presentToast("                      Campo não preenchido.",500,'danger')
 
           }
         }
@@ -85,5 +88,6 @@ export class FebPage  {
   toggleMenu() {      //Ativando o menu side
     this.menuCtrl.toggle();
   }
+
 
 }

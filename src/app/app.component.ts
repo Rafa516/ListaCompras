@@ -33,7 +33,7 @@ export class AppComponent {
       this.auth.onAuthStateChanged(user => {    //Implementação do auto-login do usuário
         if (user) {
                                                  
-          this.router.navigate(["/start"]);      //Se o usuário estiver logado continua na página start
+         this.router.navigate(["/start"]);      //Se o usuário estiver logado continua na página start
           this.splashScreen.hide();
         }
         else {
@@ -41,8 +41,10 @@ export class AppComponent {
           this.splashScreen.hide();
         }
       })
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.statusBar.overlaysWebView(true);             // iniciando o app com o status bar do aparelho usado
+      this.statusBar.backgroundColorByHexString('#04B4AE');// definindo a cor do stattus bar
+     
+      this.splashScreen.hide(); 
     });
   }
 }

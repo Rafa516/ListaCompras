@@ -1,4 +1,5 @@
 <ion-header>
+  <br>
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button class='icon'color="light"defaultHref="login"></ion-back-button>
@@ -40,7 +41,8 @@
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center">
-          <ion-button expand="block" color='success' type="submit" [disabled]="!signupForm.valid">Criar Conta</ion-button>
+          <ion-button expand="block" color='success' type="submit" [disabled]="!signupForm.valid">
+            <ion-icon   name="person-add-outline"></ion-icon>&nbsp;&nbsp;Criar Conta</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

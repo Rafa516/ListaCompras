@@ -104,8 +104,8 @@ export class MenuComponent implements OnInit {
         text: 'Sim',
         handler: () => {
           return this.auth.signOut().then(authData => {
-            this.loading.presentLoadingDanger();
-            this.toast.presentToastDanger('Usuário Deslogado.')
+            this.loading.presentLoading(2000);
+            this.toast.presentToast('                       Usuário Deslogado.',2000,'danger')
             this.navCtrl.navigateBack('login')
             this.menuCtrl.toggle();
           });

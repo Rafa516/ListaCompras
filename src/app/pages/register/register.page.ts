@@ -37,7 +37,7 @@ export class RegisterPage implements OnInit {
 
   ) {
     this.signupForm = formBuilder.group({
-      email: ['', ([Validators.minLength(1), Validators.required, EmailValidator.isValid])],
+      email: ['', ([Validators.minLength(1), Validators.required, EmailValidator.isValid])],  //Utilizando o formbuilder para agrupar as informações
       password: ['', ([Validators.minLength(6), Validators.required])],
       retype: ['', ([Validators.minLength(6), Validators.required])],
       firstName: ['', ([Validators.maxLength(30), Validators.required])],
@@ -63,8 +63,8 @@ export class RegisterPage implements OnInit {
           });
           this.name = userDoc.get();
           
-          this.load.presentLoading()
-          this.toast.presentToastSucces('Usuário Cadastrado com Sucesso.')
+          this.load.presentLoading(2000)
+          this.toast.presentToast('             Usuário Cadastrado com Sucesso.',2000,'success')
           this.navCtrl.navigateRoot('login');
 
         }, async (error) => {
@@ -72,14 +72,14 @@ export class RegisterPage implements OnInit {
             this.signupForm.controls['email'].setValue(null); //zerando o valor do input de email
             this.signupForm.controls['password'].setValue(null);//zerando o valor do input de password
             this.signupForm.controls['retype'].setValue(null);//zerando o valor do input de confirmação de senha
-            this.toast.presentToastDanger('E-mail já cadastrado.')
-            this.load.presentLoadingDanger()
+            this.toast.presentToast('                        E-mail já cadastrado.',1000,'danger')
+            this.load.presentLoading(1000)
           }
         })
     } else {
       this.signupForm.controls['retype'].setValue(null);    //condição que inválida a confirmação de senhas, se estivere diferentes
-      this.toast.presentToastDanger('Confirmação de senha inválida.')
-      this.load.presentLoadingDanger()
+      this.toast.presentToast('                 Confirmação de senha inválida.',1000,'danger')
+      this.load.presentLoading(1000)
     }
   }
 

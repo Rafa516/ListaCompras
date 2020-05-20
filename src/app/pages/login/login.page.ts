@@ -15,16 +15,14 @@ import { Storage } from '@ionic/storage';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
-  loading: any;
+ 
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public auth: AngularFireAuth,
     public firestore: AngularFirestore,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
-    public load: MethodsService,
+    public loading: MethodsService,
     public toast: MethodsService,
     public storage: Storage) {
     this.loginForm = formBuilder.group({
@@ -39,20 +37,20 @@ export class LoginPage implements OnInit {
     this.auth.signInWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password)
       .then((response) => {
        // this.storage.set('user', response.user.uid);
-        this.load.presentLoading()
-        this.toast.presentToast('Login bem-sucedido.')
+        this.loading.presentLoading(2000)
+        this.toast.presentToast('                        Login bem-sucedido.',2000,'primary');
         this.navCtrl.navigateRoot('start');
       }).catch((error) => {
         if (error.code == "auth/wrong-password") {
           this.loginForm.controls['password'].setValue(null); //limpa o input da senha
-          this.load.presentLoadingDanger();
-          this.toast.presentToastDanger('Senha incorreta digite novamente.')
+          this.loading.presentLoading(1000);
+          this.toast.presentToast('              Senha incorreta digite novamente.',1000,'danger')
         }
         else if (error.code == "auth/user-not-found") {
-          this.load.presentLoading()
+          this.loading.presentLoading(1000)
           this.loginForm.controls['email'].setValue(null);// limpa o input do email
           this.loginForm.controls['password'].setValue(null); //limpa o input da senha 
-          this.toast.presentToastDanger('Usuário incorreto ou não cadastrado.')
+          this.toast.presentToast('           Usuário incorreto ou não cadastrado.',1000,'danger')
 
         }
 
@@ -60,13 +58,11 @@ export class LoginPage implements OnInit {
 
 
   }
-
-
-  resetPwd() {
+  resetPwd() {                                //Função para redirecionar para a página de redefinição de senha
     this.navCtrl.navigateForward('reset');
   }
 
   createAccount() {
-    this.navCtrl.navigateForward('register');
+    this.navCtrl.navigateForward('register');//Função para redirecionar para  de cadastro
   }
 }

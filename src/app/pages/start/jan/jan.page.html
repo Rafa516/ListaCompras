@@ -1,6 +1,9 @@
+
 <app-menu></app-menu>
   <ion-router-outlet id="menu"></ion-router-outlet>
-<ion-header>
+ 
+<ion-header [translucent]="true">
+  <br>
   <ion-toolbar color='dark'>
     <ion-buttons slot='start'>
      <ion-icon class='icon' slot='end' (click)='toggleMenu()'name='menu'color="light"></ion-icon>
@@ -12,6 +15,7 @@
 <ion-content padding>
  
   <div class='tela'>
+    {{total}}
     <ion-item>
       <ion-input [(ngModel)]="item" type="text" placeholder="Digite aqui o seu produto">
         <ion-icon class='icon1' name="cart-outline" color="dark"></ion-icon>&nbsp;
