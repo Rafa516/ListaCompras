@@ -97,6 +97,7 @@ export class MenuComponent implements OnInit {
  
   async logoutAlert() {    //Função de alerta com parametros e botões com escolhas 
     const Myalert = await this.alertCtrl.create({
+      cssClass: 'text',
       header: "",
       subHeader: "",
       message: 'Deseja deslogar?',
@@ -105,7 +106,7 @@ export class MenuComponent implements OnInit {
         handler: () => {
           return this.auth.signOut().then(authData => {
             this.loading.presentLoading(2000);
-            this.toast.presentToast('                       Usuário Deslogado.',2000,'danger')
+            this.toast.presentToast('Usuário Deslogado.',2000,'danger')
             this.navCtrl.navigateBack('login')
             this.menuCtrl.toggle();
           });

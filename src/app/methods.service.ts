@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { Animation, AnimationController } from '@ionic/angular';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +10,8 @@ export class MethodsService {
   private loading: any;
   constructor(
     public  loadingCtrl: LoadingController,
-    public toastController: ToastController) {
-
+    public toastController: ToastController,
+    public animationCtrl: AnimationController ) {
      }
      //Método do loading, passando por parêmetro o tempo de duração
      async presentLoading(time:number) {
@@ -24,8 +26,12 @@ export class MethodsService {
         duration: time,
         position:"bottom",
         color:cor,
+        animated: true,
+        cssClass: 'text',
       });
       toast.present();
     }
+
+
    
 }

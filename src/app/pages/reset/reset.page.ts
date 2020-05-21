@@ -35,7 +35,7 @@ export class ResetPage implements OnInit {
 
     }, async (error) => {
       this.load.presentLoading(1000);
-      this.toast.presentToast('             Email inválido ou não cadastrado.',1000,'danger');
+      this.toast.presentToast('Email inválido ou não cadastrado.',1000,'danger');
       this.resetPwdForm.controls['email'].setValue(null); //limpa o input do email
 
     });

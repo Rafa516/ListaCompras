@@ -38,20 +38,24 @@ export class MayPage  {
   }
 
   addItem() {
+ 
     if (this.item != null) {
       let itemId = this.item;              // adicionando um item pelo id, se o valor dos caratcters for maior que 0
       let id = this.firestore.createId();
-      this.fireStoreList.doc(id).set({
+      this.fireStoreList.doc(id,).set({
         id: id,
         item: itemId,
+      
       });
-     
+    
+      
       this.loading.presentLoading(500);
-      this.toast.presentToast('                   Item adicionado na Lista.',500,'primary')
+      this.toast.presentToast('Item adicionado na Lista.',500,'primary')
       this.item = null;
+     
     }else{
       this.loading.presentLoading(500);
-      this.toast.presentToast("                      Campo não preenchido.",500,'danger')
+      this.toast.presentToast("Campo não preenchido.",500,'danger')
 
     }
   }
@@ -59,7 +63,8 @@ export class MayPage  {
   deleteItem(index) {
     this.fireStoreList.doc(index).delete()    // deletando o item do firestore por indexação, e removendo ta tela 
     this.loading.presentLoading(500)
-    this.toast.presentToast('                     Item excluído da Lista.',500,'danger')
+    this.toast.presentToast('Item excluído da Lista.',500,'danger')
+   
   }
 
 
@@ -74,10 +79,10 @@ export class MayPage  {
           if (data.editItem.length > 0) {      //se Houver algum valor preenchido no input a edição será completada
             this.fireStoreList.doc(index).update({ item: data.editItem })
             this.loading.presentLoading(500);
-            this.toast.presentToast('                   Item editado com sucesso.',500,'success');
+            this.toast.presentToast('Item editado com sucesso.',500,'success');
           } else if (data.editItem.length < 1) { // senão, será enviado um toast de erro
             this.loading.presentLoading(500);
-            this.toast.presentToast("                      Campo não preenchido.",500,'danger')
+            this.toast.presentToast("Campo não preenchido.",500,'danger')
 
           }
         }

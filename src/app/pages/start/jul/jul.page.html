@@ -28,7 +28,7 @@
 
 
         <ion-item *ngFor="let todo of fireStoreItemList | async">
-          <ion-icon class='icon1' name="cart-outline" color="dark"></ion-icon>&nbsp;{{todo.item}}
+          <ion-icon class='icon1' name="cart-outline" color="dark"></ion-icon>&nbsp;{{todo.item | titlecase}}
           <ion-icon class='icon1' name="create-outline" color='success' slot="end" (click)="updateItem(todo.id)"></ion-icon>
           <ion-icon class='icon1' name="trash-outline" color='danger' slot="end" (click)="deleteItem(todo.id)"></ion-icon>
         </ion-item>

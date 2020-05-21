@@ -38,19 +38,19 @@ export class LoginPage implements OnInit {
       .then((response) => {
        // this.storage.set('user', response.user.uid);
         this.loading.presentLoading(2000)
-        this.toast.presentToast('                        Login bem-sucedido.',2000,'primary');
+        this.toast.presentToast('Login bem-sucedido.',2000,'primary');
         this.navCtrl.navigateRoot('start');
       }).catch((error) => {
         if (error.code == "auth/wrong-password") {
           this.loginForm.controls['password'].setValue(null); //limpa o input da senha
           this.loading.presentLoading(1000);
-          this.toast.presentToast('              Senha incorreta digite novamente.',1000,'danger')
+          this.toast.presentToast('Senha incorreta digite novamente.',1000,'danger')
         }
         else if (error.code == "auth/user-not-found") {
           this.loading.presentLoading(1000)
           this.loginForm.controls['email'].setValue(null);// limpa o input do email
           this.loginForm.controls['password'].setValue(null); //limpa o input da senha 
-          this.toast.presentToast('           Usuário incorreto ou não cadastrado.',1000,'danger')
+          this.toast.presentToast('Usuário incorreto ou não cadastrado.',1000,'danger')
 
         }
 

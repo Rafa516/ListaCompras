@@ -17,7 +17,8 @@ export class JanPage {
   fireStoreItemList: any;
   fireStoreList: any;
   path = 'Lista Janeiro'
-  total;
+ 
+  
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -26,36 +27,42 @@ export class JanPage {
     public loading: MethodsService,
     public menuCtrl: MenuController,
     public toast: MethodsService) {
+    
 
   }
+  
+  
 
   ngOnInit() {
     this.afAuth.authState.subscribe(user => {    //Inicializando os valores das coleções do Firestore
       if (user) {
         this.userId = user.uid
         this.fireStoreItemList = this.firestore.doc<any>('Usuários/' + this.userId).collection(this.path).valueChanges();
-        this.fireStoreList = this.firestore.doc<any>('Usuários/' + this.userId).collection(this.path);
+        this.fireStoreList = this.firestore.doc<any>('Usuários/' + this.userId ).collection(this.path);
       }
     });
+   
   }
 
   addItem() {
+ 
     if (this.item != null) {
       let itemId = this.item;              // adicionando um item pelo id, se o valor dos caratcters for maior que 0
       let id = this.firestore.createId();
-      this.fireStoreList.doc(id).set({
+      this.fireStoreList.doc(id,).set({
         id: id,
         item: itemId,
+      
       });
-      for(let i = 0;i != this.item;i++){
-        this.total = this.total + this.item
-      }
+    
+      
       this.loading.presentLoading(500);
-      this.toast.presentToast('                   Item adicionado na Lista.',500,'primary')
+      this.toast.presentToast('Item adicionado na Lista.',500,'primary')
       this.item = null;
+     
     }else{
       this.loading.presentLoading(500);
-      this.toast.presentToast("                      Campo não preenchido.",500,'danger')
+      this.toast.presentToast("Campo não preenchido.",500,'danger')
 
     }
   }
@@ -63,7 +70,8 @@ export class JanPage {
   deleteItem(index) {
     this.fireStoreList.doc(index).delete()    // deletando o item do firestore por indexação, e removendo ta tela 
     this.loading.presentLoading(500)
-    this.toast.presentToast('                     Item excluído da Lista.',500,'danger')
+    this.toast.presentToast('Item excluído da Lista.',500,'danger')
+   
   }
 
 
@@ -78,10 +86,10 @@ export class JanPage {
           if (data.editItem.length > 0) {      //se Houver algum valor preenchido no input a edição será completada
             this.fireStoreList.doc(index).update({ item: data.editItem })
             this.loading.presentLoading(500);
-            this.toast.presentToast('                   Item editado com sucesso.',500,'success');
+            this.toast.presentToast('Item editado com sucesso.',500,'success');
           } else if (data.editItem.length < 1) { // senão, será enviado um toast de erro
             this.loading.presentLoading(500);
-            this.toast.presentToast("                      Campo não preenchido.",500,'danger')
+            this.toast.presentToast("Campo não preenchido.",500,'danger')
 
           }
         }
