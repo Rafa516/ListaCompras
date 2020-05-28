@@ -1,8 +1,9 @@
-import { MethodsService } from './../../methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController, AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-start',
@@ -11,18 +12,59 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class StartPage implements OnInit {
 
-  nome:string
+  datas: any;
+  dados: any
+  item: any;
+  userID: any;
   constructor(public menuCtrl: MenuController,
     public navCtrl: NavController,
     public auth: AngularFireAuth,
-    public storage:Storage,
+    public storage: Storage,
     public alertCtrl: AlertController,
     public toast: MethodsService,
-    public loading :MethodsService) { }
+    public loading: MethodsService,
+    public db: AngularFirestore, ) {
+    this.get();
+  }
 
   ngOnInit() {
-   
+    this.auth.onAuthStateChanged(user => {   
+      console.log(user.uid)
+      this.userID = user
+    })
+
   }
+  getItens() {
+
+    return new Promise((resolve, reject, ) => {
+
+      this.db.collection("Registro").get()
+        .toPromise()
+        .then((r) => {
+          let array = [];
+
+          r.forEach((d) => {
+
+            this.item = d.data()
+            this.item.id = d.id
+            array.push(this.item)
+          });
+          resolve(array)
+        })
+    })
+  }
+  get() {
+    this.getItens()
+      .then((r) => {
+        console.log(r)
+        this.datas = r
+      })
+  }
+
+
+
+
+
   goJan() {
     this.navCtrl.navigateForward('jan');
   }
@@ -60,8 +102,8 @@ export class StartPage implements OnInit {
   goDec() {
     this.navCtrl.navigateForward('dec');
   }
-  logout(){
-this.logoutAlert()
+  logout() {
+    this.logoutAlert()
   }
 
   async logoutAlert() {    //Função de alerta com parametros e botões com escolhas 
@@ -73,10 +115,10 @@ this.logoutAlert()
       buttons: [{
         text: 'Sim',
         handler: () => {
-         return this.auth.signOut().then(authData => {
+          return this.auth.signOut().then(authData => {
             this.loading.presentLoading(2000);
-            this.toast.presentToast('Usuário Deslogado.',2000,'danger')
-            this.navCtrl.navigateBack('login')  
+            this.toast.presentToast('Usuário Deslogado.', 2000, 'danger')
+            this.navCtrl.navigateBack('login')
           });
           ;
         }

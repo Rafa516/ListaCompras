@@ -16,7 +16,18 @@
 
 
 <ion-content>
+  
+  
   <div class="tela">
+   <ion-list *ngFor="let i of datas">
+    <ion-item  >
+      <p> Nome {{i.firstName}} {{i.lastName}}</p>
+    </ion-item>
+    <ion-item  >
+      <p> Email {{i.email}}</p>
+    
+  </ion-item>
+  </ion-list>
 
     <ion-card class="card">
       <ion-item>

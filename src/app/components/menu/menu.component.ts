@@ -1,4 +1,4 @@
-import { MethodsService } from 'src/app/methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController, AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';

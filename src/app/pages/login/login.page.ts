@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MethodsService } from 'src/app/methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { LoadingController, AlertController, NavParams, NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';

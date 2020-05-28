@@ -8,13 +8,15 @@ import { JanPage } from './jan.page';
 import { JanPageRoutingModule } from './jan-routing.module';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     JanPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+   
   ],
   declarations: [JanPage]
 })

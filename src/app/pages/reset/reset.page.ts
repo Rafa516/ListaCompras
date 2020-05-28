@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NavController, AlertController, ToastController } from '@ionic/angular';
 import { FormBuilder, Validators, FormGroup, } from '@angular/forms';
-import { MethodsService } from 'src/app/methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { EmailValidator } from 'src/validators/email';
 
 @Component({

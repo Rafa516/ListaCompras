@@ -1,4 +1,4 @@
-import { MethodsService } from 'src/app/methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, MenuController } from '@ionic/angular';
@@ -16,6 +16,7 @@ export class AugPage  {
   fireStoreItemList: any;
   fireStoreList: any;
   path = 'Lista Agosto'
+ 
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -35,7 +36,14 @@ export class AugPage  {
         this.fireStoreList = this.firestore.doc<any>('Usuários/' + this.userId).collection(this.path);
       }
     });
+
+   
+  
   }
+
+
+
+ 
 
   addItem() {
  

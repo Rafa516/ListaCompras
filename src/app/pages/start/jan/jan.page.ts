@@ -1,8 +1,11 @@
-import { MethodsService } from 'src/app/methods.service';
+import { MethodsService } from 'src/app/core/methods.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, MenuController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+
 
 
 @Component({
@@ -18,7 +21,7 @@ export class JanPage {
   fireStoreList: any;
   path = 'Lista Janeiro'
  
-  
+  datas:any
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -26,7 +29,8 @@ export class JanPage {
     public firestore: AngularFirestore,
     public loading: MethodsService,
     public menuCtrl: MenuController,
-    public toast: MethodsService) {
+    public toast: MethodsService,
+  ) {
     
 
   }
@@ -42,7 +46,12 @@ export class JanPage {
       }
     });
    
+
+
   }
+     
+
+
 
   addItem() {
  

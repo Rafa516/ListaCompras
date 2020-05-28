@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavParams, NavController, AlertController, LoadingController } from '@ionic/angular';
 import { EmailValidator } from 'src/validators/email';
-import { JanPage } from '../start/jan/jan.page';
-import { MethodsService } from 'src/app/methods.service';
+
+import { MethodsService } from 'src/app/core/methods.service';
 import { Storage } from '@ionic/storage';
 
 
@@ -19,8 +19,12 @@ import { Storage } from '@ionic/storage';
 export class RegisterPage implements OnInit {
 
   signupForm: FormGroup;
-  name;
-  
+
+  userDoc: any;
+  userId: any;
+
+ 
+ 
 
   constructor(
     public navCtrl: NavController,
@@ -31,7 +35,7 @@ export class RegisterPage implements OnInit {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public load: MethodsService,
-     public storage: Storage,
+    public storage: Storage,
     public toast: MethodsService
 
 
@@ -43,28 +47,29 @@ export class RegisterPage implements OnInit {
       firstName: ['', ([Validators.maxLength(30), Validators.required])],
       lastName: ['', ([Validators.maxLength(30)])]
     });
+
+    
   }
 
   ngOnInit() {
-  
+   
   }
   async signupUser() {
     if (this.signupForm.value.password == this.signupForm.value.retype) { //autentificação do usuário no Firebase Authentication
-      
+
       this.auth.createUserWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password)
         .then((response) => {
-          let userId = response.user.uid
-          let userDoc = this.firestore.doc<any>('Registro/' + userId); // implementando o documento de registro no Firestore
-          userDoc.set({
+          this.userId = response.user.uid
+          this.userDoc = this.firestore.doc<any>('Registro/' + this.userId); // implementando o documento de registro no Firestore
+          this.userDoc.set({
             firstName: this.signupForm.value.firstName,
             lastName: this.signupForm.value.lastName,
             email: this.signupForm.value.email,
 
           });
-          this.name = userDoc.get();
-          
+         
           this.load.presentLoading(2000)
-          this.toast.presentToast('Usuário Cadastrado com Sucesso.',2000,'success')
+          this.toast.presentToast('Usuário Cadastrado com Sucesso.', 2000, 'success')
           this.navCtrl.navigateRoot('login');
 
         }, async (error) => {
@@ -72,17 +77,17 @@ export class RegisterPage implements OnInit {
             this.signupForm.controls['email'].setValue(null); //zerando o valor do input de email
             this.signupForm.controls['password'].setValue(null);//zerando o valor do input de password
             this.signupForm.controls['retype'].setValue(null);//zerando o valor do input de confirmação de senha
-            this.toast.presentToast('E-mail já cadastrado.',1000,'danger')
+            this.toast.presentToast('E-mail já cadastrado.', 1000, 'danger')
             this.load.presentLoading(1000)
           }
         })
     } else {
       this.signupForm.controls['retype'].setValue(null);    //condição que inválida a confirmação de senhas, se estivere diferentes
-      this.toast.presentToast('Confirmação de senha inválida.',1000,'danger')
+      this.toast.presentToast('Confirmação de senha inválida.', 1000, 'danger')
       this.load.presentLoading(1000)
     }
   }
 
- 
+  
 
 }
