@@ -26,7 +26,7 @@ Utility:
 System:
    NodeJS            : v12.16.2 
    npm               : 6.14.4
-   OS                : Windows 10
+   OS                : Linux Ubuntu 18.04
    
    Foi utilizado como banco de dados o Firebase NoSql.
    Authentication por email/senha
