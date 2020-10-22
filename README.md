@@ -1,3 +1,6 @@
+
+## Descrição
+
 Aplicativo de lista de compras simples e fácila de usar.
 Seguintes configurações das plataformas para desenvolvimento.
 Ionic:
@@ -32,6 +35,17 @@ System:
    Authentication por email/senha
    Database: Cloud Firestore.
    
+ ## Instalação
+
+2. Instale o Node.js `https://nodejs.org/en/download/`.
+3. Crie uma pasta ou um diretório para armazenar os projetos.
+3. Com o Node.js instalado execute o comando `npm install -g @ionic/cli`.
+1. clone com a utilização de uma IDE o repositório `https://github.com/Rafa516/ListaCompras.git`, ou o baixe para a pasta criada para armazenar os projetos. 
+4. Com a utilização de uma IDE selecione o projeto e no terminal  instale as dependências com o comando  `npm install`.
+
+## Gerando o APK
+Windows: `https://www.tiagoporto.com/blog/tutorial-de-configuracao-do-ambiente-ionic-android-no-windows/`
+Linux: `https://karanalpe.com.br/tecnologia/mobile/como-gerar-o-apk-do-ionic-no-linux/`
    
    <p align="center">
   <img src="App Login.png" width="350">
