@@ -3,6 +3,7 @@
 
 Aplicativo de lista de compras simples e fácila de usar.
 Seguintes configurações das plataformas para desenvolvimento.
+
 Ionic:
 
    Ionic CLI                     : 6.8.0 
