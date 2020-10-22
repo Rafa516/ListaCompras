@@ -45,6 +45,7 @@ System:
 
 ## Gerando o APK.
 Windows: `https://www.tiagoporto.com/blog/tutorial-de-configuracao-do-ambiente-ionic-android-no-windows/`.
+
 Linux: `https://karanalpe.com.br/tecnologia/mobile/como-gerar-o-apk-do-ionic-no-linux/`.
 
 ## Imagens do APP
